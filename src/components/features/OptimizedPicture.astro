@@ -75,7 +75,6 @@ const imgClass = [className, fitClass, positionClass, roundedForImg].filter(Bool
 const pictureClass = [className, fitClass, positionClass, roundedForPicture]
   .filter(Boolean)
   .join(' ');
-const useInferSize = shouldInfer && !isRemote;
 
 const resolvedLoading = priority ? 'eager' : (loading ?? 'lazy');
 const resolvedDecoding = decoding ?? (priority ? 'sync' : 'async');
@@ -89,8 +88,8 @@ const baseImgProps = {
   ...(layout ? { layout } : {}),
   ...(fit ? { fit } : {}),
   ...(position ? { position } : {}),
-  ...(typeof resolvedWidth === 'number' ? { width: resolvedWidth } : {}),
-  ...(typeof resolvedHeight === 'number' ? { height: resolvedHeight } : {}),
+  ...(typeof width === 'number' ? { width } : {}),
+  ...(typeof height === 'number' ? { height } : {}),
   priority,
   loading: resolvedLoading,
   decoding: resolvedDecoding,
@@ -105,8 +104,8 @@ const basePictureProps = {
   ...(layout ? { layout } : {}),
   ...(fit ? { fit } : {}),
   ...(position ? { position } : {}),
-  ...(typeof resolvedWidth === 'number' ? { width: resolvedWidth } : {}),
-  ...(typeof resolvedHeight === 'number' ? { height: resolvedHeight } : {}),
+  ...(typeof width === 'number' ? { width } : {}),
+  ...(typeof height === 'number' ? { height } : {}),
   priority,
   loading: resolvedLoading,
   decoding: resolvedDecoding,

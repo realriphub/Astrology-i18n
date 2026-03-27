@@ -1,6 +1,7 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import type { Lang } from '@/utils/i18n';
-import { SUPPORTED_LANGS, toAbsolute } from '@/utils/i18n';
+import { SUPPORTED_LANGS } from '@/utils/i18n';
 import { t } from '@/utils/translations';
 
 interface Props {
@@ -26,6 +27,8 @@ const FLAG_MAP: Record<Lang, string> = {
   id: '🇮🇩',
 };
 const currentFlag = FLAG_MAP[resolvedLang] ?? '🌐';
+const currentPath = Astro.url.pathname;
+const currentTail = `${Astro.url.search}${Astro.url.hash}`;
 ---
 
 <details class={`relative ${className ?? ''}`.trim()} data-lang-root>
@@ -41,7 +44,7 @@ const currentFlag = FLAG_MAP[resolvedLang] ?? '🌐';
     {
       SUPPORTED_LANGS.map((l) => (
         <a
-          href={toAbsolute(l, Astro.url.pathname)}
+          href={`${getRelativeLocaleUrl(l, currentPath)}${currentTail}`}
           class={`flex w-full items-center gap-2 rounded-sm px-2.5 py-1.5 text-sm transition-colors hover:bg-black/20 hover:text-gray-950 dark:hover:bg-white/15 dark:hover:text-white ${l === resolvedLang ? 'font-medium text-gray-950 dark:text-white' : 'text-gray-700 dark:text-gray-300'}`}
         >
           <span aria-hidden="true">{FLAG_MAP[l] ?? '🌐'}</span>

@@ -1,129 +1,159 @@
 <div align="center">
 
-# Astrology i18n
+# Astrology
 
-**A multilingual Astro 6 blog theme for content-first publishing**
+### The Astro theme for multilingual publishing that looks polished on day one
 
 [![Astro](https://img.shields.io/badge/Astro-6-BC52EE?logo=astro)](https://astro.build)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![Node](https://img.shields.io/badge/Node-%E2%89%A5%2020-339933?logo=node.js)](https://nodejs.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Demo](https://img.shields.io/badge/Live_Demo-astrology.idimi.com-0f172a)](https://astrology.idimi.com)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-astrology.idimi.com-0f172a)](https://astrology.idimi.com)
 
-A polished, responsive Astro theme built for multilingual blogs, editorial sites, and personal publishing. It ships with locale-aware routes, centralized translations, SEO-ready defaults, optimized images, and a clean reading experience out of the box.
+**Astrology** is a multilingual Astro theme for founders, writers, publishers, and teams who want one content site to serve multiple markets without maintaining multiple codebases.
 
-<a href="https://pagespeed.web.dev/analysis/https-astrology-yo7bu6q1-edgeone-app/nij513nbyr?form_factor=mobile">
-  <img src="public/astrology-i18n-lighthouse-score.svg" alt="Lighthouse Score" width="300" />
-</a>
+It gives you locale-aware routing, typed content collections, built-in SEO, fast search, RSS, responsive images, and an editorial reading experience that already feels production-ready.
+
+[View live demo](https://astrology.idimi.com) · [Get started](#quick-start) · [See why it converts](#why-teams-pick-astrology)
+
+<img src="./public/screenshot.webp" alt="Astrology theme preview" width="100%" />
 
 </div>
 
-## Contents
+## Why teams pick Astrology
 
-- [Highlights](#highlights)
-- [Quick Start](#quick-start)
-- [Project Structure](#project-structure)
-- [Internationalization](#internationalization)
-- [Content Authoring](#content-authoring)
-- [Configuration](#configuration)
-- [Contributing](#contributing)
-- [License](#license)
+Most blog starters help you publish content. Very few help you publish it well across languages.
 
-## Highlights
+Astrology is designed for content sites that need to feel credible, load fast, and scale internationally without turning localization into a maintenance problem.
 
-- **Multilingual by design**: language-prefixed routes, centralized dictionaries, and fallback-friendly localization.
-- **Content collections**: typed frontmatter for posts, pages, and authors.
-- **SEO ready**: canonical URLs, Open Graph tags, JSON-LD, sitemap, and RSS feeds.
-- **Fast by default**: optimized images, prefetching, minimal client-side JavaScript, and Pagefind search.
-- **Modern stack**: Astro 6, Tailwind CSS 4, MDX, Partytown, and Cloudflare-ready static output.
-- **Editorial layout**: built for long-form reading, featured media, and clear content hierarchy.
+- **One theme, multiple markets**: ship a single site with language-prefixed routes and centralized translation dictionaries.
+- **Editorial by default**: layouts are tuned for long-form reading, strong hierarchy, tags, categories, author pages, and featured content.
+- **SEO already handled**: canonical URLs, Open Graph metadata, JSON-LD, sitemap, and RSS are built in.
+- **Performance without the usual tradeoffs**: Astro static output, responsive images, minimal client-side JavaScript, prefetching, and Pagefind search keep pages fast.
+- **Production-friendly stack**: Astro 6, Tailwind CSS 4, MDX, Partytown, and Cloudflare-ready deployment.
+- **Typed content workflow**: posts, pages, and authors all use schema-validated collections, so content scales without chaos.
+
+## Built for
+
+- SaaS teams running multilingual content marketing
+- Indie hackers launching a global content site
+- Editorial teams publishing in multiple regions
+- Personal brands that need a premium blog without a custom build
+- Agencies that want a strong Astro starter for content-heavy client work
+
+## What you get
+
+### Publishing experience
+
+- Locale-aware routes under `src/pages/[lang]/`
+- Posts, pages, and author profiles powered by Astro Content Collections
+- MDX authoring with typed frontmatter validation
+- Category, tag, author, pagination, RSS, and search pages included
+
+### Growth and discoverability
+
+- Search powered by Pagefind
+- Sitemap generation with locale mappings
+- RSS feeds for the default locale and localized routes
+- SEO metadata support across the site structure
+
+### Performance and UX
+
+- Static output for lean hosting and fast delivery
+- Responsive image handling and optimized formats
+- Minimal JavaScript footprint with Astro-first rendering
+- Theme switching, language switching, and mobile navigation included
+
+## Feature snapshot
+
+| Area | Included |
+| --- | --- |
+| Internationalization | 10 locales: `zh`, `en`, `fr`, `es`, `ru`, `ja`, `ko`, `pt`, `de`, `id` |
+| Content modeling | Typed collections for posts, pages, and authors |
+| SEO | Canonical URLs, Open Graph, JSON-LD, sitemap, RSS |
+| Search | Pagefind |
+| Styling | Tailwind CSS 4 |
+| Authoring | Markdown + MDX |
+| Analytics support | Partytown-ready analytics integration |
+| Deployment | Static output with Wrangler deployment script |
 
 ## Quick Start
 
-### Demo
-
-- Live site: <https://astrology.idimi.com>
-- Preview image: `public/screenshot.webp`
-
 ### Requirements
 
-- Node.js 20 or newer
+- Node.js 20+
 - pnpm
 
 ### Install
 
 ```bash
-git clone https://github.com/idimilabs/Astrology-i18n.git
-cd Astrology-i18n
+git clone https://github.com/idimilabs/Astrology.git
+cd Astrology
 pnpm install
 ```
 
-### Run locally
+### Develop
 
 ```bash
-pnpm run dev
+pnpm dev
 ```
 
-Open [http://localhost:4321](http://localhost:4321) in your browser.
+Open [http://localhost:4321](http://localhost:4321).
 
-### Build and preview
+### Build
 
 ```bash
-pnpm run build
-pnpm run preview
+pnpm build
+pnpm preview
 ```
-
-`pnpm run build` outputs the static site to `dist/`.
 
 ### Deploy
 
-The project is configured for static deployment with Wrangler:
-
 ```bash
-pnpm run deploy
+pnpm deploy
 ```
+
+The site is configured for static output and includes a Wrangler-based deploy script.
 
 ## Project Structure
 
 ```text
 .
-├── public/                 # Static assets
+├── public/                 # Static assets and social images
 ├── src/
-│   ├── assets/             # Optimized images and media
-│   ├── components/         # Reusable UI pieces
-│   ├── content/            # Posts, pages, and authors
+│   ├── assets/             # Optimized local images and media
+│   ├── components/         # Reusable UI and feature components
+│   ├── content/            # Posts, pages, and author content
 │   ├── i18n/               # Translation dictionaries
 │   ├── layouts/            # Page layouts
-│   ├── pages/              # Route definitions
+│   ├── pages/              # Routes, including multilingual pages
 │   ├── styles/             # Global styles
-│   ├── utils/              # Helpers and shared logic
-│   └── content.config.ts   # Content collections schema
+│   ├── utils/              # Shared helpers
+│   └── content.config.ts   # Content schemas
 ├── astro.config.mjs        # Astro configuration
 └── package.json            # Scripts and dependencies
 ```
 
-## Internationalization
+## How multilingual support works
 
-The theme supports 10 locales:
+Astrology ships with 10 locales out of the box, with `en` as the default language.
 
-`zh`, `en`, `fr`, `es`, `ru`, `ja`, `ko`, `pt`, `de`, `id`
+- Translation dictionaries live in `src/i18n/`
+- Language-aware routes live in `src/pages/[lang]/`
+- Locale definitions are managed in `src/utils/i18n.ts`
+- Collection schemas validate locale usage in `src/content.config.ts`
 
-`en` is the default locale.
+### Add a new locale
 
-### Add a new language
+1. Add the locale code in `src/utils/i18n.ts`.
+2. Add the same locale to `src/content.config.ts`.
+3. Create a dictionary file in `src/i18n/<lang>.json`.
+4. Add any required localized content under `src/content/`.
+5. Update locale mappings in `astro.config.mjs` if needed.
 
-1. Add the locale code to `src/utils/i18n.ts`.
-2. Update `src/content.config.ts` if the content schema needs to recognize the locale.
-3. Create a matching dictionary in `src/i18n/<lang>.json`.
-4. Adjust `astro.config.mjs` if you need sitemap or routing changes.
+## Content authoring
 
-### Routing behavior
-
-Locale-aware pages live under `src/pages/[lang]/`. If a localized page is missing, you can fall back to the default language while keeping the locale URL structure intact.
-
-## Content Authoring
-
-Posts live in `src/content/posts/[lang]/`. Pages and author profiles follow the same collection-driven pattern.
+Posts live in `src/content/posts/[lang]/`. Pages and author profiles follow the same collection-based structure.
 
 Example frontmatter:
 
@@ -131,67 +161,59 @@ Example frontmatter:
 ---
 title: "The Art of Star Gazing"
 description: "A guide to observing the night sky."
-pubDate: 2024-03-21
 category: "Astronomy"
 tags: ["Stars", "Night"]
+pubDate: 2024-03-21
 author: "Astro Learner"
-heroImage: "../assets/stars.jpg"
-locales: "en"
+heroImage: "https://images.unsplash.com/photo-example"
+heroImageAlt: "Stars over a mountain range"
+locales: en
+featured: true
 ---
 ```
 
-Recommended practices:
+## Customization
 
-- Keep titles concise and descriptive.
-- Use `description` for search and social previews.
-- Add `heroImage` for posts that benefit from a strong visual lead.
-- Use `locales` to filter or scope content by language when needed.
+### Branding
 
-## Configuration
+- Update site-level metadata and integrations in `astro.config.mjs`
+- Replace the logo and social assets in `src/assets/` and `public/`
+- Adjust navigation, footer, and layout components under `src/components/ui/`
 
-### GitHub activity calendar
+### Analytics
 
-The author page can show a contribution calendar.
+Partytown is already set up for performance-friendly analytics loading. If you use GTM or another analytics provider, start with the files in `src/components/analytics/`.
+
+### GitHub activity widget
+
+The author page can display GitHub activity when `GITHUB_TOKEN` is available.
 
 ```env
 GITHUB_TOKEN=your_personal_access_token
 ```
 
-- Set `GITHUB_TOKEN` locally for development.
-- Add it to your deployment environment if you want live GitHub activity data in production.
-- Without the token, the site falls back gracefully.
+Without the token, the site still works and falls back gracefully.
 
-### Analytics
+## Why this README is honest
 
-The project includes Partytown support for performance-friendly analytics. Configure your GTM or analytics IDs in `src/components/analytics`.
+Astrology is not trying to be a general-purpose app starter. It is optimized for content-first sites that need multilingual publishing, strong SEO foundations, and a premium reading experience.
 
-### Search
-
-Search is powered by Pagefind and is generated automatically during `pnpm run build`.
-
-### Formatting
-
-Prettier is configured for the codebase.
-
-```bash
-pnpm run format
-```
+If your primary use case is a marketing site, documentation portal, or editorial publication with multiple locales, this theme is a strong starting point. If you need a dashboard-heavy product UI, you should start elsewhere.
 
 ## Contributing
 
 Contributions are welcome.
 
 1. Fork the repository.
-2. Create a branch for your change.
-3. Commit with a clear Conventional Commit message.
-4. Open a pull request.
+2. Create a feature branch.
+3. Make your changes.
+4. Run `pnpm check`.
+5. Open a pull request.
 
 ## License
 
-MIT. See [LICENSE](LICENSE) for details.
-
----
+MIT. See [LICENSE](LICENSE).
 
 <div align="center">
-  <p>Built with care by <a href="https://idimi.com">iDiMi</a></p>
+  Built by <a href="https://idimi.com">iDiMi</a>
 </div>

@@ -25,7 +25,10 @@ const githubUrl: string =
   (Astro.props.githubUrl as string | undefined) ?? 'https://github.com/idimilabs';
 
 const rssUrl: string =
-  (Astro.props.rssUrl as string | undefined) ?? getRelativeLocaleUrl(resolvedLang, '/rss.xml');
+  ((Astro.props.rssUrl as string | undefined) ?? getRelativeLocaleUrl(resolvedLang, '/rss.xml')).replace(
+    /(\.xml)\/$/,
+    '$1',
+  );
 ---
 
 <footer class="header-glass mb-6 w-full">
